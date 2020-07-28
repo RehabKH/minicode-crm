@@ -1,0 +1,118 @@
+{
+  "@@last_modified": "2020-05-31T20:49:49.155974",
+  "makeAccount": "make account",
+  "@makeAccount": {
+    "type": "text",
+    "placeholders": {}
+  },
+  
+  "locale": "en",
+  "@locale": {
+    "type": "text",
+    "placeholders": {}
+  },
+   "logout": "تسجيل الخروج",
+  "@logout": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "Name": "الاسم",
+  "@Name": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "phone": "رقم الهاتف",
+  "@phone": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "email": "البريد الالكترونى",
+  "@email": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pass": "الرقم السري",
+  "@pass": {
+    "type": "text",
+    "placeholders": {}
+  },
+  
+  "signIn": "دخول",
+  "@signIn": {
+    "type": "text",
+    "placeholders": {}
+  },
+ 
+  "hasAcc": "بالفعل لدي حساب",
+  "@hasAcc": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "writeComment": "اكتب تعليق",
+  "@writeComment": {
+    "type": "text",
+    "placeholders": {}
+  },
+ "welcome": "مرحبا",
+  "@welcome": {
+    "type": "text",
+    "placeholders": {}
+  },
+   "submit": "إرسال",
+  "@submit": {
+    "type": "text",
+    "placeholders": {}
+  },
+   "enterCode": "اكتب الكود",
+  "@enterCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+   
+   "search": "بحث",
+  "@search": {
+    "type": "text",
+    "placeholders": {}
+  },
+ "dataNotFound": "لا توجد بيانات",
+  "@dataNotFound": {
+    "type": "text",
+    "placeholders": {}
+  },
+   "creationDate": "تاريخ اللإجراء",
+  "@creationDate": {
+    "type": "text",
+    "placeholders": {}
+  },
+ "nextActionDate": "تاريخ اللإجراء القادم",
+  "@nextActionDate": {
+    "type": "text",
+    "placeholders": {}
+  },
+   "addLead": "إضافة عميل",
+  "@addLead": {
+    "type": "text",
+    "placeholders": {}
+  },
+   "addAction": "إضافة حدث",
+  "@addAction": {
+    "type": "text",
+    "placeholders": {}
+  },
+   "contactInfo": "معلومات الاتصال",
+  "@contactOnfo": {
+    "type": "text",
+    "placeholders": {}
+  },
+   "actionDesc": "تفاصيل اللإجراء",
+  "@actionDesc": {
+    "type": "text",
+    "placeholders": {}
+  },
+
+    "leadComment": "وصف العميل",
+  "@leadComment": {
+    "type": "text",
+    "placeholders": {}
+  },
+}

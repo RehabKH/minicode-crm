@@ -1,0 +1,117 @@
+{
+  "@@last_modified": "2020-05-31T21:10:06.987261",
+  "makeAccount": "make account",
+  "@makeAccount": {
+    "type": "text",
+    "placeholders": {}
+  },
+  
+  "locale": "en",
+  "@locale": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "Name": "Your Name",
+  "@Name": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "phone": "Phone",
+  "@phone": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "email": "Email",
+  "@email": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pass": "Password",
+  "@pass": {
+    "type": "text",
+    "placeholders": {}
+  },
+   "leadComment": "Last Comment",
+  "@leadComment": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "signIn": "Login",
+  "@signIn": {
+    "type": "text",
+    "placeholders": {}
+  },
+    "logout": "logout",
+  "@logout": {
+    "type": "text",
+    "placeholders": {}
+  },
+  
+  "hasAcc": "Already has account..",
+  "@hasAcc": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "writeComment": "write Comment",
+  "@writeComment": {
+    "type": "text",
+    "placeholders": {}
+  },
+
+   "submit": "submit",
+  "@submit": {
+    "type": "text",
+    "placeholders": {}
+  },
+   "enterCode": "enter Code",
+  "@enterCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+   
+   "search": "search",
+  "@search": {
+    "type": "text",
+    "placeholders": {}
+  },
+ "dataNotFound": "data Not Found",
+  "@dataNotFound": {
+    "type": "text",
+    "placeholders": {}
+  },
+   "creationDate": "creation Date",
+  "@creationDate": {
+    "type": "text",
+    "placeholders": {}
+  },
+ "nextActionDate": "next Action Date",
+  "@nextActionDate": {
+    "type": "text",
+    "placeholders": {}
+  },
+   "addLead": "add Lead",
+  "@addLead": {
+    "type": "text",
+    "placeholders": {}
+  },
+   "addAction": "add Action",
+  "@addAction": {
+    "type": "text",
+    "placeholders": {}
+  },
+   "contactInfo": "contact Info",
+  "@contactOnfo": {
+    "type": "text",
+    "placeholders": {}
+  },
+   "welcome": "Welcome",
+  "@welcome": {
+    "type": "text",
+    "placeholders": {}
+  },
+   "actionDesc": "action Description",
+  "@actionDesc": {
+    "type": "text",
+    "placeholders": {}
+  },
+}
