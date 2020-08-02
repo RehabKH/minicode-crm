@@ -88,90 +88,20 @@ class _AddActionState extends State<AddAction> {
               : ListView(
                   children: <Widget>[
                     SizedBox(height: 50.0),
-                   
-                    // SizedBox(width: 10.0),
-                    // Padding(
-                    //     padding: const EdgeInsets.only(left: 8.0),
-                    //     child: Row(
-                    //       // mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    //       children: <Widget>[
-                    //       SizedBox(width: 20.0),
-
-                    //         Text(
-                    //           AppLocalizations.of(context).nextActionDate,
-                    //           style: TextStyle(fontWeight: FontWeight.bold,color: Colors.indigo),
-                    //         ),
-                    //         SizedBox(width: 50.0),
-                    //         Directionality(
-                    //           textDirection: TextDirection.ltr,
-                    //           child: FlatButton(
-                    //               onPressed: () {
-                    //                 DatePicker.showDatePicker(context,
-                    //                     showTitleActions: true,
-                    //                     minTime: DateTime(2000, 3, 5),
-                    //                     maxTime: DateTime(2020, 6, 7), onChanged: (date) {
-                    //                   print('change $date');
-                    //                 }, onConfirm: (date) {
-                    //                   print('confirm $date');
-                    //                   setState(() {
-                    //                     nextActionDate = date;
-                    //                   });
-                    //                 },
-                    //                     currentTime: DateTime.now(),
-                    //                     locale: LocaleType.ar);
-                    //               },
-                    //               child: Row(
-                    //                 children: <Widget>[
-                    //                   Container(
-                    //                     width: 80.0,
-
-                    //                   decoration: BoxDecoration(
-                    //                 border: Border.all(color: Colors.indigo,width: 1.0),
-                    //                 borderRadius: BorderRadius.circular(2)
-                    //               ),
-                    //                     child: Padding(
-                    //                       padding: const EdgeInsets.all(3.0),
-                    //                       child:(widget.type == "edit") ?
-                    //                       Text(widget.creationDate.day.toString() +
-                    //                             "-" +
-                    //                             widget.creationDate.month.toString() +
-                    //                             "-" +
-                    //                             widget.creationDate.year.toString(),style: TextStyle(color: Colors.indigo),):
-
-                    //                       (actionDate == null)?Text(""): Text(
-                    //                         actionDate.day.toString() +
-                    //                             "-" +
-                    //                             actionDate.month.toString() +
-                    //                             "-" +
-                    //                             actionDate.year.toString(),
-                    //                         style: TextStyle(color: Colors.indigo),
-                    //                       )),
-                    //                         ),
-                    //                   SizedBox(width: 10.0),
-                    //                   Icon(Icons.edit, color: Colors.indigo)
-                    //                 ],
-
-                    //               )),
-                    //         ),
-                    //       ],
-                    //     )),
                     Padding(
-                        padding: const EdgeInsets.only(left: 60.0, right: 60.0),
-                        child: Text(
-                          (Localizations.localeOf(context).languageCode == "en")
-                              ? "Lead Description"
-                              : "وصف العميل",
-                          style:
-                              TextStyle(color: Colors.indigo, fontSize: 15.0),
-                        ),
+                      padding: const EdgeInsets.only(left: 60.0, right: 60.0),
+                      child: Text(
+                        (Localizations.localeOf(context).languageCode == "en")
+                            ? "Lead Description"
+                            : "وصف العميل",
+                        style: TextStyle(color: Colors.indigo, fontSize: 15.0),
                       ),
-                    // SizedBox(height: 10),
+                    ),
                     ScreenFlexibleWidget(
                         // 1. Wrap with `ScreenFlexibleWidget`
 
                         child: Builder(builder: (BuildContext context) {
                       return Container(
-                        // child :  commonUIObj.buildTextField("Lead Note", leadNote,TextInputType.text, context),
                         child: Padding(
                           padding:
                               const EdgeInsets.only(left: 50.0, right: 50.0),
@@ -209,43 +139,41 @@ class _AddActionState extends State<AddAction> {
                         ),
                       );
                     })),
-                    SizedBox(height: 10.0,),
-                     Padding(
-                        padding: const EdgeInsets.only(left: 60.0, right: 60.0),
-                        child: Text(
-                          (Localizations.localeOf(context).languageCode == "en")
-                              ? "Lead Stage"
-                              : "مرحلة العميل",
-                          style:
-                              TextStyle(color: Colors.indigo, fontSize: 15.0),
-                        ),
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 60.0, right: 60.0),
+                      child: Text(
+                        (Localizations.localeOf(context).languageCode == "en")
+                            ? "Lead Stage"
+                            : "مرحلة العميل",
+                        style: TextStyle(color: Colors.indigo, fontSize: 15.0),
                       ),
-                   
-                    // Padding(
-                    //   padding: const EdgeInsets.only(
-                    //       left: 8.0, right: 8.0, top: 8.0, bottom: 8.0),
-                    //   child: commonUIObj.buildTextField(
-                    //       AppLocalizations.of(context).phone,
-                    //       stageController,
-                    //       TextInputType.phone,
-                    //       context),
-                    // ),
-                 (Localizations.localeOf(context).languageCode == "en")?
-                    commonUIObj.dropDownUI(dashBoardApi.currentStage,
-                        dashBoardApi.stageList, onChangeStage):
-                         commonUIObj.dropDownUI(dashBoardApi.currentStageAr,
-                        dashBoardApi.stageListAr, onChangeStage),
-                        Padding(
+                    ),
+                    (Localizations.localeOf(context).languageCode == "en")
+                        ? commonUIObj.dropDownUI(dashBoardApi.currentStage,
+                            dashBoardApi.stageList, onChangeStage)
+                        : commonUIObj.dropDownUI(dashBoardApi.currentStageAr,
+                            dashBoardApi.stageListAr, onChangeStage),
+                    Padding(
                       padding: const EdgeInsets.only(left: 8.0),
                       child: Row(
-                        // mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: <Widget>[
                           SizedBox(width: 50.0),
-                          Text((Localizations.localeOf(context).languageCode == "en")?"Action Date":"تاريخ اللإجراء",
+                          Text(
+                              (Localizations.localeOf(context).languageCode ==
+                                      "en")
+                                  ? "Action Date"
+                                  : "تاريخ اللإجراء",
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Colors.indigo)),
-                          Flexible(child: SizedBox(width: 20.0)),
+                          Spacer(
+                            flex: 2,
+                          ),
+
+                          // Flexible(child: SizedBox(width: 20.0)),
                           Directionality(
                             textDirection: TextDirection.ltr,
                             child: FlatButton(
@@ -276,26 +204,14 @@ class _AddActionState extends State<AddAction> {
                                               BorderRadius.circular(2)),
                                       child: Padding(
                                         padding: const EdgeInsets.all(3.0),
-                                       
-                                            // (widget.type == "edit")
-                                            //     ? Text(
-                                            //         widget.creationDate,
-                                            //         // widget.creationDate.day.toString() +
-                                            //         //     "-" +
-                                            //         //     widget.creationDate.month
-                                            //         //         .toString() +
-                                            //         //     "-" +
-                                            //         //     widget.creationDate.year
-                                            //         //         .toString(),
-                                            //         style: TextStyle(
-                                            //             color: Colors.indigo),
-                                            //       )
-                                            //     : (actionDate == null)
-                                            //         ? Text("")
-                                            //         :
-                                             child:Text(
-                                          (actionDate.toString() == null || actionDate.toString() == "null")?
-                                          "":actionDate.toString().substring(0,10),
+                                        child: Text(
+                                          (actionDate.toString() == null ||
+                                                  actionDate.toString() ==
+                                                      "null")
+                                              ? ""
+                                              : actionDate
+                                                  .toString()
+                                                  .substring(0, 10),
                                           style:
                                               TextStyle(color: Colors.indigo),
                                         ),
@@ -309,65 +225,79 @@ class _AddActionState extends State<AddAction> {
                         ],
                       ),
                     ),
-                    (nextActionDateVisible && dashBoardApi.currentStage !="select" &&
-                    dashBoardApi.currentStage !="اختر" )?Padding(
-                      padding: const EdgeInsets.only(left: 8.0),
-                      child: Row(
-                        // mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: <Widget>[
-                          SizedBox(width: 50.0),
-                          Text(AppLocalizations.of(context).nextActionDate,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.indigo)),
-                          Flexible(child: SizedBox(width: 15.0)),
-                          Directionality(
-                            textDirection: TextDirection.ltr,
-                            child: FlatButton(
-                                onPressed: () {
-                                  DatePicker.showDatePicker(context,
-                                      showTitleActions: true,
-                                      minTime: DateTime(2000, 3, 5),
-                                      maxTime: DateTime(2020, 6, 7),
-                                      onChanged: (date) {
-                                    print('change $date');
-                                  }, onConfirm: (date) {
-                                    print('confirm $date');
-                                    setState(() {
-                                      nextActionDate = date;
-                                    });
-                                  },
-                                      currentTime: DateTime.now(),
-                                      locale: LocaleType.ar);
-                                },
-                                child: Row(
-                                  children: <Widget>[
-                                    Container(
-                                      width: 90.0,
-                                      decoration: BoxDecoration(
-                                          border: Border.all(
-                                              color: Colors.indigo, width: 1.0),
-                                          borderRadius:
-                                              BorderRadius.circular(2)),
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(3.0),
-                                       
-                                             child:Text(
-                                          (nextActionDate.toString() == null || nextActionDate.toString() == "null")?
-                                          "":nextActionDate.toString().substring(0,10),
-                                          style:
-                                              TextStyle(color: Colors.indigo),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(width: 10.0),
-                                    Icon(Icons.edit, color: Colors.indigo)
-                                  ],
-                                )),
-                          ),
-                        ],
-                      ),
-                    ):Container(),
+                    (nextActionDateVisible &&
+                            dashBoardApi.currentStage != "select" &&
+                            dashBoardApi.currentStage != "اختر")
+                        ? Padding(
+                            padding: const EdgeInsets.only(left: 8.0),
+                            child: Row(
+                              children: <Widget>[
+                                SizedBox(width: 50.0),
+                                Text(
+                                    AppLocalizations.of(context).nextActionDate,
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.indigo)),
+                            
+                                Spacer(
+                                  flex: 1,
+                                ),
+                                Directionality(
+                                  textDirection: TextDirection.ltr,
+                                  child: FlatButton(
+                                      onPressed: () {
+                                        DatePicker.showDatePicker(context,
+                                            showTitleActions: true,
+                                            minTime: DateTime(2000, 3, 5),
+                                            maxTime: DateTime(2020, 6, 7),
+                                            onChanged: (date) {
+                                          print('change $date');
+                                        }, onConfirm: (date) {
+                                          print('confirm $date');
+                                          setState(() {
+                                            nextActionDate = date;
+                                          });
+                                        },
+                                            currentTime: DateTime.now(),
+                                            locale: LocaleType.ar);
+                                      },
+                                      child: Row(
+                                        children: <Widget>[
+                                          Container(
+                                            width: 90.0,
+                                            decoration: BoxDecoration(
+                                                border: Border.all(
+                                                    color: Colors.indigo,
+                                                    width: 1.0),
+                                                borderRadius:
+                                                    BorderRadius.circular(2)),
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.all(3.0),
+                                              child: Text(
+                                                (nextActionDate.toString() ==
+                                                            null ||
+                                                        nextActionDate
+                                                                .toString() ==
+                                                            "null")
+                                                    ? ""
+                                                    : nextActionDate
+                                                        .toString()
+                                                        .substring(0, 10),
+                                                style: TextStyle(
+                                                    color: Colors.indigo),
+                                              ),
+                                            ),
+                                          ),
+                                          SizedBox(width: 10.0),
+                                          Icon(Icons.edit, color: Colors.indigo)
+                                        ],
+                                      )),
+                                ),
+                              ],
+                            ),
+                          )
+                        : Container(),
                     Padding(
                       padding: const EdgeInsets.only(
                           top: 10.0, left: 50.0, right: 50.0),
@@ -377,19 +307,20 @@ class _AddActionState extends State<AddAction> {
                               dashBoardApi.currentStageAr == "اختر") {
                             Toast.show("stage should't be empty", context,
                                 duration: Toast.LENGTH_LONG,
-                                gravity: Toast.CENTER,backgroundColor: Colors.indigo);
-                          } 
-                         else if(actionComment.text.isEmpty){
-                             Toast.show("please write description", context,
+                                gravity: Toast.CENTER,
+                                backgroundColor: Colors.indigo);
+                          } else if (actionComment.text.isEmpty) {
+                            Toast.show("please write description", context,
                                 duration: Toast.LENGTH_LONG,
-                                gravity: Toast.CENTER,backgroundColor: Colors.indigo);
-                          }
-                          else if(actionDate == null || nextActionDate == null){
-                             Toast.show("please write date", context,
+                                gravity: Toast.CENTER,
+                                backgroundColor: Colors.indigo);
+                          } else if (actionDate == null ||
+                              nextActionDate == null) {
+                            Toast.show("please write date", context,
                                 duration: Toast.LENGTH_LONG,
-                                gravity: Toast.CENTER,backgroundColor: Colors.indigo);
-                          }
-                          else {
+                                gravity: Toast.CENTER,
+                                backgroundColor: Colors.indigo);
+                          } else {
                             getUserData().then((val) {
                               dashBoardApi
                                   .addAction(
@@ -408,18 +339,13 @@ class _AddActionState extends State<AddAction> {
                                   setState(() {
                                     actionComment.text = "";
                                     nextActionDate = null;
-                                     actionDate= null;
-
-
+                                    actionDate = null;
                                   });
                                 }
                               });
                             });
                           }
-                          // Navigator.of(context).push(MaterialPageRoute(
-                          //     builder: (BuildContext context) =>
-                          //         new Home()));
-                        },
+                          },
                         child: Container(
                           height: 40.0,
                           width: 100.0,
@@ -434,8 +360,6 @@ class _AddActionState extends State<AddAction> {
                         ),
                       ),
                     ),
-
-                    
                   ],
                 )),
     );
@@ -454,14 +378,15 @@ class _AddActionState extends State<AddAction> {
     setState(() {
       dashBoardApi.currentStage = value;
       dashBoardApi.currentStageAr = value;
-
     });
     for (int i = 0; i < dashBoardApi.allStages.length; i++) {
-      if (value == dashBoardApi.allStages[i]["StageName"] ||value == dashBoardApi.allStages[i]["StageNameAr"]) {
+      if (value == dashBoardApi.allStages[i]["StageName"] ||
+          value == dashBoardApi.allStages[i]["StageNameAr"]) {
         setState(() {
           dashBoardApi.currentStageID = dashBoardApi.allStages[i]["StageID"];
-          
-          nextActionDateVisible = dashBoardApi.allStages[i]["ShowNextActionDate"];
+
+          nextActionDateVisible =
+              dashBoardApi.allStages[i]["ShowNextActionDate"];
         });
       }
     }

@@ -23,7 +23,6 @@ class _LoginPageState extends State<LoginPage>
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     animationController =
         AnimationController(duration: Duration(seconds: 4), vsync: this);
@@ -52,11 +51,6 @@ class _LoginPageState extends State<LoginPage>
         animation: animationController,
         builder: (context, Widget child) {
           return Scaffold(
-              // appBar: AppBar(
-              //   elevation: 0.0,
-              //   title:Text("login page"),
-              //   centerTitle: true,
-              // ),
               body: Form(
             key: _key,
             child: Container(
@@ -66,7 +60,6 @@ class _LoginPageState extends State<LoginPage>
                 child: ListView(
                   shrinkWrap: true,
                   children: <Widget>[
-// SizedBox(height:MediaQuery.of(context).size.height/3),
                     SizedBox(height: 30.0),
                     Transform(
                       transform: Matrix4.translationValues(
@@ -127,7 +120,6 @@ class _LoginPageState extends State<LoginPage>
                                   fontSize: 20.0))),
                     ),
                     SizedBox(height: 60.0),
-
                     Transform(
                       transform: Matrix4.translationValues(
                           delayAnimation.value * width, 0.0, 0.0),
@@ -186,17 +178,6 @@ class _LoginPageState extends State<LoginPage>
                       ),
                     ),
                     SizedBox(height: 20.0),
-                    // Center(
-                    //     child: InkWell(
-                    //         onTap: () {
-                    //              Navigator.of(context).push(MaterialPageRoute(
-                    //               builder: (BuildContext context) =>
-                    //                   new RegisterPage()));
-                    //         },
-                    //         child: Text(AppLocalizations.of(context).notHasAcc,
-                    //             style: TextStyle(fontSize: 17.0
-                    //             ,color:Colors.white,decoration: TextDecoration.underline
-                    //             ))))
                   ],
                 )),
           ));

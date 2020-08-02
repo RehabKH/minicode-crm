@@ -1,10 +1,8 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:minicode_crm/api/dashBoardApi.dart';
 import 'package:minicode_crm/translation/localizations.dart';
 import 'package:minicode_crm/ui/addLead.dart';
-// import 'package:minicode_crm/ui/const.dart';
 import 'package:minicode_crm/ui/enterCode.dart';
 import 'package:minicode_crm/ui/leadDetails.dart';
 import 'package:minicode_crm/ui/leadsPage.dart';
@@ -18,7 +16,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
-  // Const constObj = new Const();
   int notificationCount;
   DashBoardApi dbApi = new DashBoardApi();
   bool loading = true;
@@ -26,11 +23,6 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   var notificationResult;
   AnimationController animationController;
   List<CustomPopupMenu> notificationList = new List<CustomPopupMenu>();
-  // List<CustomPopupMenu> choices = [
-  //   CustomPopupMenu(title: 'project', desc: "new project is added"),
-  //   CustomPopupMenu(title: 'stage', desc: "stage is deleted"),
-  //   CustomPopupMenu(title: 'Channel', desc: "new channel"),
-  // ];
 
   @override
   void initState() {
@@ -44,28 +36,26 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
               loading = false;
               notificationResult = val2;
               notificationCount = val3;
-              // notificationList = val/2;
             });
             for (int i = 0; i < notificationResult.length; i++) {
               setState(() {
-                notificationList.add(CustomPopupMenu(
-                    clientName: notificationResult[i]["ClientName"],
-                    clientID: notificationResult[i]["ClientID"].toString(),
-                    clientPhone: notificationResult[i]["ClientMobile"],
-                    creationDate: DateTime.parse(notificationResult[i]["CreationDate"]),
-                    projectName:
-                    notificationResult[i]["ProjectName"],
-                    stageID: notificationResult[i]["StageID"].toString(),
-                    stageName: (Localizations.localeOf(context).languageCode == "en")?
-                     notificationResult[i]["StageName"]:
-                     notificationResult[i]["StageNameAr"],
-                    lastComment:notificationResult[i]["LastComment"] ),
-                    );
-                    
+                notificationList.add(
+                  CustomPopupMenu(
+                      clientName: notificationResult[i]["ClientName"],
+                      clientID: notificationResult[i]["ClientID"].toString(),
+                      clientPhone: notificationResult[i]["ClientMobile"],
+                      creationDate:
+                          DateTime.parse(notificationResult[i]["CreationDate"]),
+                      projectName: notificationResult[i]["ProjectName"],
+                      stageID: notificationResult[i]["StageID"].toString(),
+                      stageName:
+                          (Localizations.localeOf(context).languageCode == "en")
+                              ? notificationResult[i]["StageName"]
+                              : notificationResult[i]["StageNameAr"],
+                      lastComment: notificationResult[i]["LastComment"]),
+                );
               });
             }
-            // print(
-            //     "notificationList::::::::::::::::::::::::::::::::::::::::::::::$notificationList");
           });
         });
       });
@@ -109,9 +99,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                           )
                         : ListView(
                             children: <Widget>[
-                              // SizedBox(height: 10.0),
                               Row(
-                                // mainAxisAlignment: MainAxisAlignment.,
                                 children: <Widget>[
                                   SizedBox(
                                     height: 55.0,
@@ -126,7 +114,6 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                                                 width: 15.0,
                                                 decoration: BoxDecoration(
                                                     color: Colors.red,
-                                                    // borderRadius: BorderRadius.circular(50.0)
                                                     shape: BoxShape.circle),
                                                 child: Center(
                                                   child: Text(
@@ -144,17 +131,13 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                                             Icons.notifications_active,
                                             color: Colors.white,
                                           ),
-                                          // SizedBox(height: 5.0,)
                                         ],
                                       ),
                                       elevation: 3.2,
-                                      // initialValue:
-                                      //     notificationList[0].clientName,
                                       onCanceled: () {
                                         print('You have not chossed anything');
                                       },
                                       tooltip: 'recent notification',
-                                      // onSelected: _select,
                                       itemBuilder: (BuildContext context) {
                                         return notificationList
                                             .map((CustomPopupMenu choice) {
@@ -162,28 +145,41 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                                             value: choice,
                                             child: InkWell(
                                               onTap: () {
-                                                Navigator.of(context).push(MaterialPageRoute(builder: (context)=> new LeadDetails(
-                                                  name: choice.clientName,
-                                                  mobile: choice.clientPhone,
-                                                  projectName:choice.clientPhone ,
-                                                  stageName: choice.stageName,
-                                                  creationDate: choice.creationDate,
-                                                  stageID: choice.stageID,
-                                                  clientID: choice.clientID,
-                                                )));
+                                                Navigator.of(context).push(
+                                                    MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            new LeadDetails(
+                                                              name: choice
+                                                                  .clientName,
+                                                              mobile: choice
+                                                                  .clientPhone,
+                                                              projectName: choice
+                                                                  .clientPhone,
+                                                              stageName: choice
+                                                                  .stageName,
+                                                              creationDate: choice
+                                                                  .creationDate,
+                                                              stageID: choice
+                                                                  .stageID,
+                                                              clientID: choice
+                                                                  .clientID,
+                                                            )));
                                               },
                                               child: ListTile(
                                                 title: Text(choice.clientName,
                                                     style: TextStyle(
                                                         color: Colors.indigo)),
-                                                subtitle: Text((choice.lastComment == null)?"":choice.lastComment+", "+
-                                                  choice.creationDate.toString().substring(0,10),
+                                                subtitle: Text(
+                                                  (choice.lastComment == null)
+                                                      ? ""
+                                                      : choice.lastComment +
+                                                          ", " +
+                                                          choice.creationDate
+                                                              .toString()
+                                                              .substring(0, 10),
                                                   style: TextStyle(
                                                       color: Colors.grey),
                                                 ),
-                                                // child: Text(choice.clientName,
-                                                //     style: TextStyle(
-                                                //         color: Colors.indigo)),
                                               ),
                                             ),
                                           );
@@ -191,48 +187,19 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                                       },
                                     ),
                                   ),
-
-                                  SizedBox(width: MediaQuery.of(context).size.width/4),
+                                  SizedBox(
+                                      width: MediaQuery.of(context).size.width /
+                                          4),
                                   Text(
-                                    AppLocalizations.of(context).welcome+" "+userName,
+                                    AppLocalizations.of(context).welcome +
+                                        " " +
+                                        userName,
                                     style: TextStyle(
                                         color: Colors.white, fontSize: 16.0),
                                   ),
-                                  // Directionality(
-                                  //     textDirection: TextDirection.ltr,
-                                  //     child: IconButton(
-                                  //       onPressed: () {},
-                                  //       icon: Icon(Icons.arrow_back,
-                                  //           color: Colors.white),
-                                  //     )),
                                 ],
                               ),
                               SizedBox(height: 10.0),
-                              // Transform(
-                              //   transform: Matrix4.translationValues(
-                              //       animation.value * width, 0.0, 0.0),
-                              //   child: Center(
-                              //     child: Text(
-                              //       "Welcome Back",
-                              //       style: TextStyle(color: Colors.white),
-                              //     ),
-                              //   ),
-                              // ),
-                              // SizedBox(height: 10.0),
-                              // Transform(
-                              //   transform: Matrix4.translationValues(
-                              //       animation.value * width, 0.0, 0.0),
-                              //   child: Row(
-                              //     mainAxisAlignment: MainAxisAlignment.center,
-                              //     children: <Widget>[
-                              //       Text(
-                              //         (userName == null) ? "" : userName,
-                              //         style: TextStyle(color: Colors.white),
-                              //       ),
-                              //     ],
-                              //   ),
-                              // ),
-                              // SizedBox(height: 10.0),
                               Padding(
                                 padding: const EdgeInsets.only(
                                     left: 120.0, right: 120.0),
@@ -251,7 +218,9 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                                             borderRadius:
                                                 BorderRadius.circular(20.0)),
                                         child: Center(
-                                            child: Text(AppLocalizations.of(context).logout,
+                                            child: Text(
+                                                AppLocalizations.of(context)
+                                                    .logout,
                                                 style: TextStyle(
                                                     color: Colors.indigo)))),
                                   ),
@@ -275,9 +244,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (BuildContext context) => new SearchPage()));
-                      // Add your onPressed code here!
                     },
-                    // label: Text('Approve'),
                     label: Text(AppLocalizations.of(context).search),
                     backgroundColor: Colors.indigo[100],
                   ),
@@ -288,10 +255,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (BuildContext context) => new AddLead()));
-                      // Add your onPressed code here!
                     },
                     label: Text(AppLocalizations.of(context).addLead),
-                    // icon: Icon(Icons.add),
                     backgroundColor: Colors.indigo[100],
                   ),
                 ]));
@@ -303,17 +268,6 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     return Container(
       height: MediaQuery.of(context).size.height / 2 + 200.0,
       child: GridView.builder(
-        // primary: false,
-        // padding: const EdgeInsets.all(20.0),
-
-//     ListView.builder(
-//       scrollDirection: Axis.horizontal,
-// itemCount: 5,
-// itemBuilder: (context,index){
-//   return _gridContainer();
-// },
-//     )
-
         itemBuilder: (BuildContext context, int index) {
           return InkWell(
             onTap: () {
@@ -326,36 +280,36 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
               elevation: 0.5,
               borderRadius: BorderRadius.circular(15.0),
               child: Container(
-                  // height: 100.0,
-                  // width:150.0,
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(15.0)),
                   child: Padding(
-                    padding: const EdgeInsets.only(left:0.0,right: 0.0),
+                    padding: const EdgeInsets.only(left: 0.0, right: 0.0),
                     child: Directionality(
                       textDirection: TextDirection.ltr,
-                                          child: Column(
+                      child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           // SizedBox(height:20.0),
-                          Text((Localizations.localeOf(context).languageCode == "en")?
-  (dbApi.allDashboardStages[index]["StageName"] != null)
-      ? dbApi.allDashboardStages[index]["StageName"]
-      : "": (dbApi.allDashboardStages[index]["StageNameAr"] != null)
-      ? dbApi.allDashboardStages[index]["StageNameAr"]
-      : "",
-  style: TextStyle(
-    color: Colors.grey,
-  ),
-),
-                          // Row(
-                          //   mainAxisAlignment: MainAxisAlignment.center,
-                          //   children: <Widget>[
-
-                          
-                          //   ],
-                          // ),
+                          Text(
+                            (Localizations.localeOf(context).languageCode ==
+                                    "en")
+                                ? (dbApi.allDashboardStages[index]
+                                            ["StageName"] !=
+                                        null)
+                                    ? dbApi.allDashboardStages[index]
+                                        ["StageName"]
+                                    : ""
+                                : (dbApi.allDashboardStages[index]
+                                            ["StageNameAr"] !=
+                                        null)
+                                    ? dbApi.allDashboardStages[index]
+                                        ["StageNameAr"]
+                                    : "",
+                            style: TextStyle(
+                              color: Colors.grey,
+                            ),
+                          ),
                           SizedBox(height: 20.0),
 
                           Container(
@@ -366,8 +320,11 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                                   borderRadius: BorderRadius.circular(20.0)),
                               child: Center(
                                   child: Text(
-                                      (dbApi.allDashboardStages[index]["ClientsCount"] != null)
-                                          ? dbApi.allDashboardStages[index]["ClientsCount"]
+                                      (dbApi.allDashboardStages[index]
+                                                  ["ClientsCount"] !=
+                                              null)
+                                          ? dbApi.allDashboardStages[index]
+                                                  ["ClientsCount"]
                                               .toString()
                                           : "",
                                       style: TextStyle(
@@ -381,15 +338,11 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           );
         },
         itemCount: dbApi.allDashboardStages.length,
-        //_allCompanies.length,
-        // primary: false,
         padding: const EdgeInsets.only(left: 20, right: 20.0),
         gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           crossAxisSpacing: 6.0,
-          //for height of card
           childAspectRatio: 1.3,
-          //for horizontal space
           mainAxisSpacing: 7.0,
         ),
       ),
@@ -400,14 +353,10 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   int empID;
   Future<void> getUserData() async {
     final prefs = await SharedPreferences.getInstance();
-    //  prefs.setInt("UserId",userData[0]["UserId"] );
     setState(() {
       userName = prefs.getString("UserName");
       empID = prefs.getInt("EmpID");
     });
-
-    //  prefs.setString("PSWRD",userData[0]["PSWRD"] );
-    //  prefs.setInt("EmpID",userData[0]["EmpID"] );
   }
 
   Future<void> logout() async {
@@ -423,29 +372,36 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       barrierDismissible: false, // user must tap button!
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text((Localizations.localeOf(context).languageCode =="en")?
-          'Rewind and remember':"تنبيهات وتذكر"),
+          title: Text((Localizations.localeOf(context).languageCode == "en")
+              ? 'Rewind and remember'
+              : "تنبيهات وتذكر"),
           content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
-                Text((Localizations.localeOf(context).languageCode =="en")?'Are you sure':"هل انت متأكد"),
-                Text((Localizations.localeOf(context).languageCode =="en")?'you want to exit':"انك تريد الحروج من التطبيق"),
+                Text((Localizations.localeOf(context).languageCode == "en")
+                    ? 'Are you sure'
+                    : "هل انت متأكد"),
+                Text((Localizations.localeOf(context).languageCode == "en")
+                    ? 'you want to exit'
+                    : "انك تريد الحروج من التطبيق"),
               ],
             ),
           ),
           actions: <Widget>[
             FlatButton(
-              child: Text((Localizations.localeOf(context).languageCode =="en")?'Cancel':"إلغاء"),
+              child: Text((Localizations.localeOf(context).languageCode == "en")
+                  ? 'Cancel'
+                  : "إلغاء"),
               onPressed: () {
                 Navigator.of(context).pop();
               },
             ),
             FlatButton(
-              child: Text((Localizations.localeOf(context).languageCode =="en")?"exit":"خروج"),
+              child: Text((Localizations.localeOf(context).languageCode == "en")
+                  ? "exit"
+                  : "خروج"),
               onPressed: () {
-                // FirebaseAuth.instance.signOut();
                 exit(0);
-                // Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=> new ))
               },
             ),
           ],

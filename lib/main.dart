@@ -29,10 +29,6 @@ class _MyAppState extends State<MyApp> {
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(statusBarColor: Colors.transparent)
     );
-  //  SystemChrome.setSystemUIOverlayStyle(
-  //     SystemUiOverlayStyle(statusBarColor: Colors.white24)
-  //   );
-   //SystemChrome.setEnabledSystemUIOverlays([]);
   }
 
  onLocaleChange(Locale locale){

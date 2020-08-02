@@ -31,7 +31,6 @@ class _EditLeadDetailsState extends State<EditLeadDetails> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     dashBoardApi.getAllProjects().then((val) {
       dashBoardApi.getAllStages().then((val) {
@@ -118,7 +117,6 @@ class _EditLeadDetailsState extends State<EditLeadDetails> {
                           TextInputType.phone,
                           context),
                       SizedBox(height: 20),
-
                       Padding(
                         padding: const EdgeInsets.only(left: 60.0, right: 60.0),
                         child: Text(
@@ -128,11 +126,8 @@ class _EditLeadDetailsState extends State<EditLeadDetails> {
                         ),
                       ),
                       ScreenFlexibleWidget(
-                          // 1. Wrap with `ScreenFlexibleWidget`
-
                           child: Builder(builder: (BuildContext context) {
                         return Container(
-                          // child :  commonUIObj.buildTextField("Lead Note", leadNote,TextInputType.text, context),
                           child: Padding(
                             padding:
                                 const EdgeInsets.only(left: 50.0, right: 50.0),
@@ -171,15 +166,6 @@ class _EditLeadDetailsState extends State<EditLeadDetails> {
                         );
                       })),
                       SizedBox(height: 20.0),
-                      // Padding(
-                      //   padding: const EdgeInsets.only(
-                      //       left: 8.0, right: 8.0, top: 8.0, bottom: 8.0),
-                      //   child: commonUIObj.buildTextField(
-                      //       AppLocalizations.of(context).phone,
-                      //       stageController,
-                      //       TextInputType.phone,
-                      //       context),
-                      // ),
                       Padding(
                         padding: const EdgeInsets.only(left: 60.0, right: 60.0),
                         child: Text(
@@ -197,8 +183,6 @@ class _EditLeadDetailsState extends State<EditLeadDetails> {
                               dashBoardApi.currentProjectAr,
                               dashBoardApi.projectListAr,
                               onChangeProject),
-                      //  commonUIObj.buildTextField("project", leadPhone,TextInputType.phone, context),
-
                       SizedBox(height: 20.0),
                       Padding(
                         padding: const EdgeInsets.only(left: 60.0, right: 60.0),
@@ -217,7 +201,6 @@ class _EditLeadDetailsState extends State<EditLeadDetails> {
                               dashBoardApi.currentChannelAr,
                               dashBoardApi.channelListAr,
                               onChangeChannel),
-
                       SizedBox(height: 20.0),
                       Padding(
                         padding: const EdgeInsets.only(left: 60.0, right: 60.0),
@@ -237,11 +220,9 @@ class _EditLeadDetailsState extends State<EditLeadDetails> {
                       SizedBox(
                         height: 20.0,
                       ),
-
                       Padding(
                         padding: const EdgeInsets.only(left: 8.0),
                         child: Row(
-                          // mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: <Widget>[
                             SizedBox(width: 50.0),
                             Text(AppLocalizations.of(context).creationDate,
@@ -283,9 +264,13 @@ class _EditLeadDetailsState extends State<EditLeadDetails> {
                                           child: Text(
                                             (widget.leadModelList
                                                         .creationDate ==
-                                                    null )
-                                                ? ( actionDate == null)?""
-                                                : (actionDate.toString().substring(0,10)):widget
+                                                    null)
+                                                ? (actionDate == null)
+                                                    ? ""
+                                                    : (actionDate
+                                                        .toString()
+                                                        .substring(0, 10))
+                                                : widget
                                                     .leadModelList.creationDate
                                                     .toString(),
                                             style:
@@ -315,8 +300,10 @@ class _EditLeadDetailsState extends State<EditLeadDetails> {
                             }
                             if (actionDate == null) {
                               Toast.show(
-                                  "creation date should't be empty", context,duration: Toast.LENGTH_LONG,
-                                  gravity: Toast.CENTER,backgroundColor: Colors.indigo);
+                                  "creation date should't be empty", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.CENTER,
+                                  backgroundColor: Colors.indigo);
                             }
                             if (formState.validate() &&
                                 (dashBoardApi.currentChannel != "select" ||
@@ -356,10 +343,6 @@ class _EditLeadDetailsState extends State<EditLeadDetails> {
                                 }
                               });
                             }
-
-                            // Navigator.of(context).push(MaterialPageRoute(
-                            //     builder: (BuildContext context) =>
-                            //         new Home()));
                           },
                           child: Container(
                             height: 40.0,
@@ -422,9 +405,6 @@ class _EditLeadDetailsState extends State<EditLeadDetails> {
       dashBoardApi.currentChannel = value;
       dashBoardApi.currentChannelAr = value;
     });
-    // if(Localizations.localeOf(context).languageCode == "en"){
-
-    // }
     for (int i = 0; i < dashBoardApi.allChannel.length; i++) {
       if (value == dashBoardApi.allChannel[i]["ChannelName"] ||
           value == dashBoardApi.allChannel[i]["ChannelNameAr"]) {
@@ -461,6 +441,5 @@ class _EditLeadDetailsState extends State<EditLeadDetails> {
       return "name length can't be less than 6 digit";
     }
     return null;
-    // else if(name.startsWith())
   }
 }

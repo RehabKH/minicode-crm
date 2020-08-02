@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:minicode_crm/models/leadDetails.dart';
 import 'package:minicode_crm/translation/localizations.dart';
 import 'package:minicode_crm/ui/addAction.dart';
-// import 'package:minicode_crm/ui/addAction.dart';/
 import 'package:minicode_crm/ui/commonUI.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:minicode_crm/ui/editLeadDetails.dart';
@@ -76,21 +75,14 @@ class _LeadDetailsState extends State<LeadDetails> {
                     height: 10.0,
                   ),
                   Center(
-                    child: Text((widget.stageName == null)?"":
-                   widget.stageName,
+                    child: Text(
+                        (widget.stageName == null) ? "" : widget.stageName,
                         style:
                             TextStyle(color: Colors.grey[400], fontSize: 15.0)),
                   )
                 ],
               ),
             )),
-        // actions: <Widget>[
-        //   IconButton(
-        //     onPressed: (){},
-        //     icon: Icon(Icons.more_vert,color:Colors.white),
-        //   )
-        // ],
-
         body: ListView(
           shrinkWrap: true,
           children: <Widget>[
@@ -103,7 +95,6 @@ class _LeadDetailsState extends State<LeadDetails> {
 
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    // textDirection: TextDirection.ltr,
                     children: <Widget>[
                       Text(AppLocalizations.of(context).creationDate,
                           style: TextStyle(
@@ -117,17 +108,17 @@ class _LeadDetailsState extends State<LeadDetails> {
                   Row(
                     // textDirection: TextDirection.ltr,
                     children: <Widget>[
-                      Text((widget.creationDate.toString() == null)?"":
-                      widget.creationDate.toString().substring(0,10),
+                      Text(
+                          (widget.creationDate.toString() == null)
+                              ? ""
+                              : widget.creationDate.toString().substring(0, 10),
                           style: TextStyle(
                               color: Colors.indigo[200], fontSize: 16.0)),
                     ],
                   ),
-                  // SizedBox(height: 10.0),
                   Divider(),
 
                   Row(
-                    // textDirection: TextDirection.ltr,
                     children: <Widget>[
                       RichText(
                         text: TextSpan(children: [
@@ -143,17 +134,15 @@ class _LeadDetailsState extends State<LeadDetails> {
                                 fontWeight: FontWeight.bold,
                               )),
                           TextSpan(
-                              text: (widget.stageName == null)?"":widget.stageName,
+                              text: (widget.stageName == null)
+                                  ? ""
+                                  : widget.stageName,
                               style: TextStyle(
                                   fontSize: 15.0, color: Colors.indigo[200])),
                         ]),
                       )
-                      // Text("Stage\n",style:TextStyle(color: Colors.black54,fontWeight: FontWeight.bold,fontSize:17.0)),
-                      // Text("Following",style:TextStyle(color: Colors.grey,fontSize:15.0)),
                     ],
                   ),
-
-                  // SizedBox(height: 10.0),
                   Divider(),
                   Row(
                     children: <Widget>[
@@ -165,28 +154,14 @@ class _LeadDetailsState extends State<LeadDetails> {
                             fontWeight: FontWeight.bold),
                       ),
                       Text(
-                        (widget.lastComment ==null)?"":widget.lastComment,
+                        (widget.lastComment == null) ? "" : widget.lastComment,
                         style: TextStyle(
                             fontSize: 15.0, color: Colors.indigo[200]),
                       )
                     ],
                   ),
                   Divider(),
-
-                  // SizedBox(height: 10.0,),
-                  // Row(
-                  //   textDirection: TextDirection.ltr,
-                  //   children: <Widget>[
-                  //     Text("Comment\n",
-                  //         style: TextStyle(
-                  //             color: Colors.indigo,
-                  //             fontWeight: FontWeight.bold,
-                  //             fontSize: 16.0)),
-                  //   ],
-                  // ),
-
                   Row(
-                    // textDirection: TextDirection.ltr,
                     children: <Widget>[
                       Text(AppLocalizations.of(context).nextActionDate,
                           style: TextStyle(
@@ -223,44 +198,6 @@ class _LeadDetailsState extends State<LeadDetails> {
                           Icon(Icons.edit, color: Colors.indigo[200])
                         ],
                       )),
-                  // SizedBox(
-                  //   height: 10.0,
-                  // ),
-                  // ScreenFlexibleWidget(
-                  //     // 1. Wrap with `ScreenFlexibleWidget`
-
-                  //     child: Builder(builder: (BuildContext context) {
-                  //   return Container(
-                  //     // child :  commonUIObj.buildTextField("Lead Note", leadNote,TextInputType.text, context),
-                  //     child: Padding(
-                  //       padding: const EdgeInsets.only(left: 5.0, right: 5.0),
-                  //       child: TextField(
-                  //         controller: commentController,
-
-                  //         // style: textStyle,
-                  //         onChanged: (val) {
-                  //           // debugPrint("something changed in description ");
-                  //           // updateDescription();
-                  //         },
-                  //         maxLines: null,
-                  //         decoration: InputDecoration(
-                  //             filled: true,
-                  //             fillColor: Colors.white54,
-                  //             contentPadding: EdgeInsets.all(10.0),
-                  //             hintText: "Write your comment",
-                  //             hintStyle: TextStyle(color: Colors.indigo[200]),
-                  //             border: OutlineInputBorder(
-                  //               borderSide: BorderSide.none,
-                  //               // borderSide: BorderSide(color: Colors.indigo[200]),
-                  //               borderRadius: const BorderRadius.all(
-                  //                 const Radius.circular(10.0),
-                  //               ),
-                  //             )),
-                  //       ),
-                  //     ),
-                  //   );
-                  // })),
-                  // SizedBox(height: 10.0),
                   Divider(),
 
                   Center(
@@ -275,31 +212,11 @@ class _LeadDetailsState extends State<LeadDetails> {
                         ),
                         expanded: Column(
                           children: <Widget>[
-                            // Row(
-                            //   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            //   children: <Widget>[
-                            //     Text("email@gmail.com",
-                            //         style: TextStyle(color: Colors.indigo)),
-                            //     // SizedBox(width: 5.0),
-                            //     InkWell(
-                            //       child: Icon(
-                            //         Icons.email,
-                            //         color: Colors.indigo,
-                            //         size: 15.0,
-                            //       ),
-                            //       onTap: () {},
-                            //     ),
-                            //   ],
-                            // ),
-                            // SizedBox(
-                            //   height: 10.0,
-                            // ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: <Widget>[
                                 Text(widget.mobile,
                                     style: TextStyle(color: Colors.indigo)),
-                                // SizedBox(width: 5.0),
                                 InkWell(
                                   child: Icon(
                                     Icons.phone,
@@ -328,178 +245,9 @@ class _LeadDetailsState extends State<LeadDetails> {
                             )
                           ],
                         ),
-
-                        // child:Text("Contact Info",style: TextStyle(color: Colors.white),),
                       ),
                     ),
                   ),
-
-                  //                     Container(
-                  //                       height:100.0,
-
-                  //                       child:  GridView.builder(
-                  //                         // shrinkWrap: true,
-                  //                       // scrollDirection: Axis.horizontal,
-                  //                       itemCount: categories.length,
-                  //                       itemBuilder: (context,index){
-                  //  return _buildTagContainer(index,categories[index]);
-                  //                       }, gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
-                  //                 crossAxisCount: 3,
-                  //                 crossAxisSpacing: 3.0,
-                  //                 //for height of card
-                  //                 childAspectRatio: 2.0,
-                  //                 //for horizontal space
-                  //                 mainAxisSpacing: 0.3,
-
-                  //               ),
-                  //                     ),
-                  //                     ),
-                  // Center(
-                  //   child: Padding(
-                  //     padding: const EdgeInsets.only(top: 18.0, left: 8),
-                  //     child: ExpandablePanel(
-                  //       iconColor: Colors.indigo,
-                  //       header: Text(
-                  //         "More Info",
-                  //         style:
-                  //             TextStyle(color: Colors.indigo[800], fontSize: 17.0),
-                  //       ),
-                  //       expanded: Column(
-                  //         children: <Widget>[
-                  //           Row(
-                  //             mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  //             children: <Widget>[
-                  //               Text("CITY:",
-                  //                   style: TextStyle(color: Colors.indigo)),
-                  //               SizedBox(
-                  //                 width: 5.0,
-                  //               ),
-                  //               Text("Assuit",
-                  //                   style: TextStyle(color: Colors.indigo[200])),
-                  //               // SizedBox(width: 5.0),
-                  //             ],
-                  //           ),
-                  //           SizedBox(
-                  //             height: 10.0,
-                  //           ),
-                  //           Row(
-                  //             mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  //             children: <Widget>[
-                  //               Text("Country:",
-                  //                   style: TextStyle(color: Colors.indigo)),
-                  //               SizedBox(width: 5.0),
-                  //               Text("Egypt",
-                  //                   style: TextStyle(color: Colors.indigo[200])),
-                  //             ],
-                  //           ),
-                  //           SizedBox(
-                  //             height: 10.0,
-                  //           ),
-                  //           Row(
-                  //             mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  //             children: <Widget>[
-                  //               Text("SOURCE LEAD",
-                  //                   style: TextStyle(color: Colors.indigo)),
-                  //               SizedBox(width: 5.0),
-                  //               Text("Facebook",
-                  //                   style: TextStyle(color: Colors.indigo[200])),
-                  //             ],
-                  //           ),
-                  //           SizedBox(
-                  //             height: 10.0,
-                  //           )
-                  //         ],
-                  //       ),
-
-                  //       // child:Text("Contact Info",style: TextStyle(color: Colors.white),),
-                  //     ),
-                  //   ),
-                  // ),
-                  // Divider(),
-                  // Directionality(
-                  //   textDirection: TextDirection.ltr,
-                  //   child: Row(
-                  //     //  textDirection: TextDirection.rtl,
-                  //     children: <Widget>[
-                  //       RichText(
-                  //         text: TextSpan(children: [
-                  //           TextSpan(
-                  //               text: "Leads Details\n",
-                  //               style: TextStyle(
-                  //                 fontSize: 16.0,
-                  //                 color: Colors.indigo[800],
-                  //                 fontWeight: FontWeight.bold,
-                  //                 decoration: TextDecoration.underline,
-                  //               )),
-                  //           TextSpan(
-                  //               text: "CITY\n",
-                  //               style: TextStyle(
-                  //                 color: Colors.indigo,
-                  //                 fontSize: 16.0,
-                  //               )),
-                  //           TextSpan(
-                  //               text: "cairo\n",
-                  //               style: TextStyle(
-                  //                 color: Colors.indigo[200],
-                  //                 fontWeight: FontWeight.bold,
-                  //                 fontSize: 15.0,
-                  //               )),
-                  //         ]),
-                  //       )
-                  //     ],
-                  //   ),
-                  // ),
-                  // Divider(),
-                  // Directionality(
-                  //   textDirection: TextDirection.ltr,
-                  //   child: Row(
-                  //     children: <Widget>[
-                  //       RichText(
-                  //         text: TextSpan(children: [
-                  //           TextSpan(
-                  //               text: "Country\n",
-                  //               style: TextStyle(
-                  //                 fontSize: 16.0,
-                  //                 color: Colors.indigo,
-                  //               )),
-                  //           TextSpan(
-                  //               text: "Egypt\n",
-                  //               style: TextStyle(
-                  //                 fontSize: 15.0,
-                  //                 color: Colors.indigo[200],
-                  //                 fontWeight: FontWeight.bold,
-                  //               )),
-                  //         ]),
-                  //       )
-                  //     ],
-                  //   ),
-                  // ),
-
-                  // Divider(),
-                  // Directionality(
-                  //   textDirection: TextDirection.ltr,
-                  //   child: Row(
-                  //     children: <Widget>[
-                  //       RichText(
-                  //         text: TextSpan(children: [
-                  //           TextSpan(
-                  //               text: "SOURCE LEAD\n",
-                  //               style: TextStyle(
-                  //                 fontSize: 16.0,
-                  //                 color: Colors.indigo,
-                  //               )),
-                  //           TextSpan(
-                  //               text: "facebook\n",
-                  //               style: TextStyle(
-                  //                 fontSize: 15.0,
-                  //                 color: Colors.indigo[200],
-                  //                 fontWeight: FontWeight.bold,
-                  //               )),
-                  //         ]),
-                  //       )
-                  //     ],
-                  //   ),
-                  // ),
                   SizedBox(height: 10.0),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -574,40 +322,6 @@ class _LeadDetailsState extends State<LeadDetails> {
     } else {
       throw 'Could not launch $url';
     }
-  }
-
-  Widget _buildTagContainer(int index, String item) {
-    return Row(
-      textDirection: TextDirection.ltr,
-      children: <Widget>[
-        Container(
-            height: 40.0,
-            width: 100.0,
-            decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(5.0),
-                border: new Border.all(color: Colors.grey)),
-            child: Padding(
-              padding: EdgeInsets.only(left: 10.0, right: 5.0),
-              child: Row(
-                textDirection: TextDirection.ltr,
-                children: <Widget>[
-                  Expanded(
-                      child: Text(item, style: TextStyle(color: Colors.grey))),
-                  SizedBox(width: 10.0),
-                  InkWell(
-                      onTap: () {},
-                      child: Icon(
-                        Icons.close,
-                        color: Colors.grey,
-                        size: 15.0,
-                      ))
-                ],
-              ),
-            )),
-        // SizedBox(width:10.0)
-      ],
-    );
   }
 
   void _launchWhatsapp(String mobile) async {

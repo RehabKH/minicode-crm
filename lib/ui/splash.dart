@@ -10,16 +10,12 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
-   
     super.initState();
 
     Future.delayed(Duration(seconds: 3), () {
-      
       getAccessToken().then((value) {
-        print("ÈempID: $empID");
         Navigator.of(context).pushReplacement(MaterialPageRoute(
-              builder: (BuildContext context) => new CodePage()));
-       
+            builder: (BuildContext context) => new CodePage()));
       });
     });
   }
@@ -30,12 +26,10 @@ class _SplashPageState extends State<SplashPage> {
       body: Center(
         child: Container(
           height: MediaQuery.of(context).size.height,
-          // width: MediaQuery.of(context).size.width,
           child: new Image.asset(
             "assets/logo.jpg",
             fit: BoxFit.fill,
           ),
-        
         ),
       ),
     );

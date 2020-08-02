@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:minicode_crm/api/dashBoardApi.dart';
 import 'package:minicode_crm/translation/localizations.dart';
 import 'package:minicode_crm/ui/commonUI.dart';
-// import 'package:minicode_crm/ui/const.dart';
-import 'package:minicode_crm/translation/localizations.dart';
 
 class SearchPage extends StatefulWidget {
   @override
@@ -89,7 +87,6 @@ class _SearchPageState extends State<SearchPage> {
                             leadNameController,
                             TextInputType.text,
                             context),
-
                         SizedBox(height: 10.0),
                         Padding(
                           padding: const EdgeInsets.only(
@@ -107,8 +104,8 @@ class _SearchPageState extends State<SearchPage> {
                             context),
                         SizedBox(height: 10.0),
                         Padding(
-                          padding:
-                              const EdgeInsets.only(left: 60.0, right: 60.0,bottom: 10.0),
+                          padding: const EdgeInsets.only(
+                              left: 60.0, right: 60.0, bottom: 10.0),
                           child: Text(
                             (Localizations.localeOf(context).languageCode ==
                                     "en")
@@ -121,70 +118,14 @@ class _SearchPageState extends State<SearchPage> {
                         (Localizations.localeOf(context).languageCode == "en")
                             ? commonUIObj.dropDownUI(getDropDown.currentProject,
                                 getDropDown.projectList, onChangeProject)
-                            : commonUIObj.dropDownUI(getDropDown.currentProjectAr,
-                                getDropDown.projectListAr, onChangeProject),
-                        // Row(
-                        //   mainAxisAlignment: MainAxisAlignment.center,
-                        //   children: <Widget>[
-                        //     Container(
-                        //       width: MediaQuery.of(context).size.width - 100.0,
-
-                        //       // width: MediaQuery.of(context).size.width - 40.0,
-                        //       decoration: BoxDecoration(
-                        //           color: Colors.indigo[50].withOpacity(0.7),
-                        //           borderRadius: BorderRadius.circular(10.0)),
-                        //       child: new DropdownButton<String>(
-                        //         hint: Text("Project"),
-                        //         iconEnabledColor: Colors.indigo,
-                        //         iconDisabledColor: Colors.indigo,
-                        //         value: getDropDown.currentProject,
-                        //         items:
-                        //             getDropDown.projectList.map((String value) {
-                        //           return new DropdownMenuItem<String>(
-                        //             value: value,
-                        //             child: Center(
-                        //               // padding: const EdgeInsets.only(left:20.0,right:0.0),
-                        //               child: Padding(
-                        //                 padding: const EdgeInsets.all(8.0),
-                        //                 child: new Text(value,
-                        //                     style: TextStyle(
-                        //                         color: Colors.indigo[300])),
-                        //               ),
-                        //             ),
-                        //           );
-                        //         }).toList(),
-                        //         onChanged: (val) {
-                        //           setState(() {
-                        //             getDropDown.currentProject = val;
-                        //           });
-                        //           if (projectResult.length > 0) {
-                        //             for (int i = 0;
-                        //                 i < projectResult.length;
-                        //                 i++) {
-                        //               if (projectResult[i]["ProjectName"] ==
-                        //                   val) {
-                        //                 setState(() {
-                        //                   getDropDown.currentProjectID =
-                        //                       projectResult[i]["ProjectID"];
-                        //                 });
-                        //               }
-                        //             }
-                        //             print("Projectid :::::::::::::::" +
-                        //                 getDropDown.currentProjectID
-                        //                     .toString());
-                        //           }
-                        //         },
-                        //       ),
-                        //     ),
-                        //   ],
-                        // ),
+                            : commonUIObj.dropDownUI(
+                                getDropDown.currentProjectAr,
+                                getDropDown.projectListAr,
+                                onChangeProject),
                         SizedBox(height: 10.0),
                         Padding(
                           padding: const EdgeInsets.only(
-                            left: 60.0,
-                            right: 60.0,
-                            bottom: 10.0
-                          ),
+                              left: 60.0, right: 60.0, bottom: 10.0),
                           child: Text(
                             (Localizations.localeOf(context).languageCode ==
                                     "en")
@@ -199,39 +140,6 @@ class _SearchPageState extends State<SearchPage> {
                                 getDropDown.stageList, onChangeStage)
                             : commonUIObj.dropDownUI(getDropDown.currentStageAr,
                                 getDropDown.stageListAr, onChangeStage),
-                        // Row(
-                        //   mainAxisAlignment: MainAxisAlignment.center,
-                        //   children: <Widget>[
-                        //     Container(
-                        //       width: MediaQuery.of(context).size.width - 100.0,
-                        //       decoration: BoxDecoration(
-                        //           color: Colors.indigo[50].withOpacity(0.7),
-                        //           borderRadius: BorderRadius.circular(10.0)),
-                        //       child: new DropdownButton<String>(
-
-                        //         iconEnabledColor: Colors.indigo,
-                        //         iconDisabledColor: Colors.indigo,
-                        //         value: getDropDown.currentStage,
-                        //         items:
-                        //             getDropDown.stageList.map((String value) {
-                        //           return new DropdownMenuItem<String>(
-                        //             value: value,
-                        //             child: Center(
-                        //               // padding: const EdgeInsets.only(left:20.0,right:0.0),
-                        //               child: Padding(
-                        //                 padding: const EdgeInsets.all(8.0),
-                        //                 child: new Text(value,
-                        //                     style: TextStyle(
-                        //                         color: Colors.indigo[300])),
-                        //               ),
-                        //             ),
-                        //           );
-                        //         }).toList(),
-                        //         onChanged: (val) {},
-                        //       ),
-                        //     ),
-                        //   ],
-                        // ),
                         SizedBox(height: 10.0),
                         Padding(
                           padding:
@@ -290,7 +198,6 @@ class _SearchPageState extends State<SearchPage> {
           });
         }
       }
-      print("stageid :::::::::::::::" + getDropDown.currentStageID.toString());
     }
   }
 
@@ -298,18 +205,15 @@ class _SearchPageState extends State<SearchPage> {
     setState(() {
       getDropDown.currentProject = val;
       getDropDown.currentProjectAr = val;
-
     });
     if (projectResult.length > 0) {
       for (int i = 0; i < projectResult.length; i++) {
-        if (projectResult[i]["ProjectName"] == val ) {
+        if (projectResult[i]["ProjectName"] == val) {
           setState(() {
             getDropDown.currentProjectID = projectResult[i]["ProjectID"];
           });
         }
       }
-      print("Projectid :::::::::::::::" +
-          getDropDown.currentProjectID.toString());
     }
   }
 }

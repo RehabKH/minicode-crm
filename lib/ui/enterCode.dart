@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:minicode_crm/api/loginApi.dart';
 import 'package:minicode_crm/translation/localHelper.dart';
 import 'package:minicode_crm/translation/localizations.dart';
-//import 'package:minicode_crm/ui/animationbtn/Component21.dart';/
 import 'package:minicode_crm/ui/commonUI.dart';
-import 'package:toast/toast.dart';
-
 import 'login.dart';
 
 class CodePage extends StatefulWidget {
@@ -59,7 +56,6 @@ class _CodePageState extends State<CodePage>
             child: ListView(
               shrinkWrap: true,
               children: <Widget>[
-// SizedBox(height:MediaQuery.of(context).size.height/3),
                 SizedBox(height: 30.0),
                 Transform(
                   transform: Matrix4.translationValues(
@@ -120,16 +116,17 @@ class _CodePageState extends State<CodePage>
                               fontSize: 20.0))),
                 ),
                 SizedBox(height: 60.0),
-
                 Transform(
                   transform: Matrix4.translationValues(
                       muchDelayAnimation.value * width, 0.0, 0.0),
                   child: commonUIObj.buildTextField(
-                      AppLocalizations.of(context).enterCode, codeController, TextInputType.text, context,
+                      AppLocalizations.of(context).enterCode,
+                      codeController,
+                      TextInputType.text,
+                      context,
                       errorMsg: onTextEditingCompleteFunc),
                 ),
                 SizedBox(height: 10.0),
-
                 Padding(
                   padding: const EdgeInsets.only(left: 50.0, right: 50.0),
                   child: Transform(
@@ -145,16 +142,14 @@ class _CodePageState extends State<CodePage>
                           confirmCodeObj
                               .confirmCode(codeController.text)
                               .then((val) {
-                            // Toast.show(val, context,
-                            //     duration: Toast.LENGTH_LONG,
-                            //     gravity: Toast.CENTER);
                             setState(() {
                               loading = false;
                             });
                             if (val == "Done") {
-                              Navigator.of(context).pushReplacement(MaterialPageRoute(
-                                  builder: (BuildContext context) =>
-                                      new LoginPage()));
+                              Navigator.of(context).pushReplacement(
+                                  MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          new LoginPage()));
                             }
                           });
                         }

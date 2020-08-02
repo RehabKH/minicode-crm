@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flexible/screen_flexible.dart';
 import 'package:flexible/flexible.dart';
 import 'package:minicode_crm/api/dashBoardApi.dart';
 import 'package:minicode_crm/translation/localizations.dart';
@@ -25,7 +24,6 @@ class _AddLeadState extends State<AddLead> {
   bool loading = true;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     dbApi.getAllProjects().then((val) {
       dbApi.getAllStages().then((val) {
@@ -43,9 +41,6 @@ class _AddLeadState extends State<AddLead> {
   @override
   Widget build(BuildContext context) {
     commonUIObj = new CommonUI(context);
-    // currentProj = (Localizations.localeOf(context).languageCode == "en")
-    //     ? "Select"
-    //     : "اختر";
     return Scaffold(
       appBar: AppBar(
         title: Text(AppLocalizations.of(context).addLead),
@@ -131,17 +126,12 @@ class _AddLeadState extends State<AddLead> {
 
                           child: Builder(builder: (BuildContext context) {
                         return Container(
-                          // child :  commonUIObj.buildTextField("Lead Note", leadNote,TextInputType.text, context),
-                          child: Padding(
+                           child: Padding(
                             padding:
                                 const EdgeInsets.only(left: 50.0, right: 50.0),
                             child: TextField(
                               controller: leadNote,
-
-                              // style: textStyle,
                               onChanged: (val) {
-                                // debugPrint("something changed in description ");
-                                // updateDescription();
                               },
                               maxLines: null,
                               decoration: InputDecoration(
@@ -179,7 +169,6 @@ class _AddLeadState extends State<AddLead> {
                           dbApi.projectList, onChangeProject):
                           commonUIObj.dropDownUI(dbApi.currentProjectAr,
                           dbApi.projectListAr, onChangeProject),
-                      //  commonUIObj.buildTextField("project", leadPhone,TextInputType.phone, context),
                       SizedBox(height: 20.0),
                       Padding(
                         padding: const EdgeInsets.only(
@@ -197,7 +186,6 @@ class _AddLeadState extends State<AddLead> {
                               dbApi.stageList, onChangeStage)
                           : commonUIObj.dropDownUI(dbApi.currentStageAr,
                               dbApi.stageListAr, onChangeStage),
-                      //  commonUIObj.buildTextField("project", leadPhone,TextInputType.phone, context),
                       SizedBox(height: 20.0),
                       Padding(
                         padding: const EdgeInsets.only(
@@ -301,9 +289,7 @@ class _AddLeadState extends State<AddLead> {
       ),
     );
   }
-
-  // String currentProj, currentStage, currentChannel;
-  void onChangeProject(String value) {
+ void onChangeProject(String value) {
     print(value);
     setState(() {
       dbApi.currentProject = value;
@@ -342,10 +328,7 @@ class _AddLeadState extends State<AddLead> {
       dbApi.currentChannel = value;
       dbApi.currentChannelAr = value;
     });
-    // if(Localizations.localeOf(context).languageCode == "en"){
-
-    // }
-    for (int i = 0; i < dbApi.allChannel.length; i++) {
+     for (int i = 0; i < dbApi.allChannel.length; i++) {
       if (value == dbApi.allChannel[i]["ChannelName"] ||
           value == dbApi.allChannel[i]["ChannelNameAr"]) {
         setState(() {
@@ -380,13 +363,5 @@ class _AddLeadState extends State<AddLead> {
       return "name length can't be less than 6 digit";
     }
     return null;
-    // else if(name.startsWith())
-  }
-
-  // String errorEmail(String email) {
-  //   if (!email.endsWith("@yahoo.com") && !email.endsWith("@gmail.com")) {
-  //     return "error email format";
-  //   }
-  //   return null;
-  // }
+   }
 }
